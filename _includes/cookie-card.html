@@ -1,0 +1,27 @@
+{%- assign c = include.cookie -%}
+{%- assign cid = c.name | slugify -%}
+<article class="cookie-card">
+  <div class="cookie-card__art">
+    {%- if c.image -%}
+      <img src="{{ c.image | relative_url }}" alt="{{ c.name | escape }}" loading="lazy">
+    {%- else -%}
+      {% include cookie-art.html dough=c.dough chips=c.chips label=c.name %}
+    {%- endif -%}
+  </div>
+  <div class="cookie-card__body">
+    <h3>{{ c.name }}</h3>
+    <p>{{ c.description }}</p>
+    {%- if c.fine_print %}<p class="fine-print">{{ c.fine_print }}</p>{% endif %}
+    <div class="cookie-card__meta">
+      <span class="price">${{ c.price }} / dozen{% if c.price_note %} <small>({{ c.price_note }})</small>{% endif %}</span>
+      {%- for tag in c.tags -%}<span class="tag">{{ tag }}</span>{%- endfor -%}
+    </div>
+    <form class="add-to-cart" data-cookie-id="{{ cid }}">
+      <label class="visually-hidden" for="qty-{{ cid }}">Dozens of {{ c.name }}</label>
+      <select id="qty-{{ cid }}" name="qty">
+        {%- for n in (1..99) %}<option value="{{ n }}">{{ n }} dozen</option>{% endfor -%}
+      </select>
+      <button class="button button--small" type="submit">Add to cart</button>
+    </form>
+  </div>
+</article>

@@ -1,0 +1,86 @@
+# The menu. Each cookie needs a name, description, and price.
+# Optional fields:
+#   featured: true   -> shows on the home page
+#   tags: [...]      -> small labels like "vegan" or "gluten-free"
+#   dough / chips    -> colors for the cookie illustration (CSS colors)
+#   image            -> path to a photo in assets/images (replaces the illustration)
+#   price_note       -> short note shown after the price (e.g. "starting price")
+#   fine_print       -> small allergy note under the description (e.g. "May contain nuts.")
+# price is the number of dollars per dozen (used for cart totals).
+- category: Classics
+  items:
+    - name: Chocolate Chip
+      description: Golden, buttery dough loaded with dark chocolate and a sprinkle of flaky sea salt.
+      price: 18
+      featured: true
+      dough: "#c98a4b"
+      chips: "#4a2a17"
+    - name: Snickerdoodle
+      description: Soft and pillowy with a crackly cinnamon-sugar coat.
+      price: 15
+      featured: true
+      dough: "#e2b97f"
+      chips: "#b0703a"
+    - name: Oatmeal Raisin
+      description: Chewy rolled oats, plump raisins, warm cinnamon and nutmeg.
+      price: 15
+      dough: "#c8995e"
+      chips: "#5b2f2a"
+    - name: Oatmeal Craisin
+      description: Chewy rolled oats and tart dried cranberries with a hint of cinnamon.
+      price: 15
+      dough: "#c8995e"
+      chips: "#b83a3f"
+    - name: Peanut Butter
+      description: Classic fork-pressed peanut butter cookie, crisp edges and a tender middle.
+      fine_print: May contain nuts.
+      price: 15
+      dough: "#d9a560"
+      chips: "#a8692e"
+    - name: Lemon
+      description: Bright, soft lemon cookies with fresh zest and a sweet lemon glaze.
+      price: 15
+      dough: "#f1d89a"
+      chips: "#f7ecc4"
+    - name: Chocolate Cake
+      description: Soft, puffy cookies with the rich, tender crumb of chocolate cake.
+      price: 15
+      dough: "#6b3f2a"
+      chips: "#3a2016"
+
+- category: Specialties
+  items:
+    - name: Chocolate Fudge
+      description: Dense, gooey, and deeply chocolatey, like a brownie in cookie form.
+      price: 18
+      featured: true
+      dough: "#5a3524"
+      chips: "#2a160d"
+    - name: Chocolate Fudge Walnut
+      description: Our chocolate fudge cookie with toasted walnuts folded in.
+      fine_print: Contains walnuts.
+      price: 20
+      dough: "#5a3524"
+      chips: "#b9894f"
+    - name: Chocolate No-Bake Oatmeal
+      description: Old-fashioned no-bake cookies made with oats, cocoa, and peanut butter.
+      fine_print: May contain nuts.
+      price: 15
+      dough: "#6e4630"
+      chips: "#c8a46e"
+
+- category: Seasonal
+  note: Available for a limited time.
+  items:
+    - name: Pumpkin
+      description: Soft, cake-like pumpkin cookies with warm fall spices.
+      price: 18
+      tags: [fall]
+      dough: "#d98c3f"
+      chips: "#a8582a"
+    - name: Lukken
+      description: Thin, crisp Belgian butter cookies pressed in a waffle iron, a New Year's tradition.
+      price: 15
+      tags: [holiday]
+      dough: "#e8c27a"
+      chips: "#cf9f55"

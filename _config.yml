@@ -1,0 +1,47 @@
+# Site settings — edit these to match the bakery.
+title: Kate's Cookies
+tagline: Small-batch cookies, baked fresh at home
+description: >-
+  Kate's Cookies is a small home bakery making small-batch, made-to-order
+  cookies for pickup and local delivery. Classic favorites, seasonal specials,
+  and custom orders for parties and events.
+
+# Contact details (placeholders — replace with real info)
+email: hello@katescookies.com
+phone: "(555) 123-4567"
+location: Your Town, ST
+service_area: Your Town and nearby neighborhoods
+order_lead_time: 48 hours
+instagram: katescookies      # handle only, no @. Leave blank to hide.
+facebook:                    # page name only. Leave blank to hide.
+
+# Optional: set a Formspree form ID (e.g. "xyzabcd") to enable the order form.
+# Without it, the order page shows an email link instead.
+formspree_id:
+
+# Many states require home-kitchen products to carry a notice like this.
+# Check your local cottage food laws and edit (or blank it out) as needed.
+cottage_food_notice: >-
+  Made in a home kitchen that is not subject to state food safety inspection.
+  Our kitchen also handles wheat, eggs, dairy, soy, peanuts, and tree nuts.
+
+# GitHub Pages / build settings
+# If this site is served from https://<user>.github.io/<repo>/, set baseurl to "/<repo>".
+# If it uses a custom domain or a <user>.github.io repo, leave baseurl empty.
+url: ""
+baseurl: ""
+
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .idea

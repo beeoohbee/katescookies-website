@@ -1,0 +1,72 @@
+---
+layout: page
+title: Your Cart
+subtitle: Review your cookies, then send us your order request. We'll confirm availability and your total.
+permalink: /cart/
+---
+<div class="split split--top cart-layout">
+  <section aria-labelledby="cart-heading">
+    <h2 id="cart-heading">Cookies</h2>
+    <div class="cart" data-cart>
+      <ul class="cart-items" data-cart-items></ul>
+      <div class="cart-empty" data-cart-empty>
+        <p>Your cart is empty.</p>
+        <a class="button" href="{{ '/menu/' | relative_url }}">Browse the menu</a>
+      </div>
+      <div class="cart-total" data-cart-total-row hidden>
+        <span>Estimated total</span>
+        <strong data-cart-total>$0</strong>
+      </div>
+      <p class="muted small" data-cart-total-row hidden>Final price is confirmed when we reply. Custom requests may cost more.</p>
+      <p><a href="{{ '/menu/' | relative_url }}">&larr; Keep shopping</a></p>
+    </div>
+    <noscript><p class="callout callout--plain">The cart needs JavaScript. You can still order by emailing <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p></noscript>
+  </section>
+
+  <section aria-labelledby="form-heading">
+    <h2 id="form-heading">Your details</h2>
+    <form class="order-form" data-order-form
+          {% if site.formspree_id %}action="https://formspree.io/f/{{ site.formspree_id }}"{% endif %}
+          method="POST"
+          data-email="{{ site.email }}">
+      <label>Name <input type="text" name="name" autocomplete="name" required></label>
+      <label>Email <input type="email" name="email" autocomplete="email" required></label>
+      <label>Phone <input type="tel" name="phone" autocomplete="tel"></label>
+      <div class="form-row">
+        <label>Date needed <input type="date" name="date_needed" required data-min-days="2"></label>
+        <label>Pickup or delivery?
+          <select name="fulfillment" data-fulfillment>
+            <option>Pickup</option>
+            <option>Delivery</option>
+          </select>
+        </label>
+      </div>
+      <label data-address hidden>Delivery address <input type="text" name="address" autocomplete="street-address"></label>
+      <label>Notes (allergies, occasion, custom requests)
+        <textarea name="notes" rows="4"></textarea>
+      </label>
+      <input type="hidden" name="order" data-order-summary>
+      <input type="hidden" name="estimated_total" data-order-total>
+      <input type="hidden" name="_subject" value="New cookie order request">
+      <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="form-error" data-form-error role="alert" hidden></p>
+      <button class="button" type="submit">Send order request</button>
+      <p class="muted small">This sends a request, not a payment. We'll reply to confirm availability, total, and pickup or delivery time.</p>
+    </form>
+    <div class="order-success callout callout--plain" data-order-success hidden tabindex="-1">
+      <h2>Thank you!</h2>
+      <p data-order-success-text>We've received your order request and will be in touch soon to confirm.</p>
+      <a class="button" href="{{ '/menu/' | relative_url }}">Back to the menu</a>
+    </div>
+  </section>
+</div>
+
+<section class="cart-faq">
+  <h2>Good to know</h2>
+  <dl class="faq">
+    {%- for item in site.data.faq %}
+    <dt>{{ item.q }}</dt>
+    <dd>{{ item.a }}</dd>
+    {%- endfor %}
+  </dl>
+</section>

@@ -1,0 +1,19 @@
+{%- comment -%}
+  Simple cookie illustration. Params: dough, chips (CSS colors), label (for screen readers).
+{%- endcomment -%}
+{%- assign dough = include.dough | default: "#c98a4b" -%}
+{%- assign chips = include.chips | default: "#4a2a17" -%}
+<svg class="cookie-art" viewBox="0 0 120 120" role="img" aria-label="{{ include.label | default: 'Cookie' | escape }}">
+  <path fill="{{ dough }}" d="M60 8c10 0 15 4 23 7s15 9 20 17 6 15 7 25-1 18-6 26-11 15-20 20-16 9-25 9-16-3-24-7-15-10-20-19S8 70 8 60s3-17 8-25S26 21 34 15 50 8 60 8z"/>
+  <path fill="#000" opacity=".08" d="M103 32c5 8 6 15 7 25s-1 18-6 26-11 15-20 20-16 9-25 9c20-8 40-25 44-50 1-10 0-20 0-30z"/>
+  <g fill="{{ chips }}">
+    <ellipse cx="40" cy="38" rx="7" ry="5.5" transform="rotate(-20 40 38)"/>
+    <ellipse cx="72" cy="30" rx="6" ry="5"/>
+    <ellipse cx="84" cy="58" rx="7" ry="5.5" transform="rotate(30 84 58)"/>
+    <ellipse cx="55" cy="62" rx="6.5" ry="5"/>
+    <ellipse cx="32" cy="72" rx="6" ry="5" transform="rotate(15 32 72)"/>
+    <ellipse cx="66" cy="88" rx="7" ry="5.5" transform="rotate(-10 66 88)"/>
+    <ellipse cx="90" cy="84" rx="4.5" ry="4"/>
+    <ellipse cx="48" cy="94" rx="4" ry="3.5"/>
+  </g>
+</svg>

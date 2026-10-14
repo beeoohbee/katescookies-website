@@ -1,0 +1,27 @@
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <p class="site-footer__brand">{{ site.title }}</p>
+      <p>{{ site.tagline }}</p>
+      <p>{{ site.location }}</p>
+    </div>
+    <div>
+      <p class="site-footer__heading">Get in touch</p>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      {%- if site.phone %}<p><a href="tel:{{ site.phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}">{{ site.phone }}</a></p>{% endif %}
+      <p class="site-footer__social">
+        {%- if site.instagram %}<a href="https://instagram.com/{{ site.instagram }}">Instagram</a>{% endif -%}
+        {%- if site.facebook %}<a href="https://facebook.com/{{ site.facebook }}">Facebook</a>{% endif -%}
+      </p>
+    </div>
+    <div>
+      <p class="site-footer__heading">Ordering</p>
+      <p>Order at least {{ site.order_lead_time }} ahead.<br>Pickup &amp; local delivery.</p>
+      <p><a href="{{ '/menu/' | relative_url }}">Start an order &rarr;</a></p>
+    </div>
+  </div>
+  <div class="container site-footer__legal">
+    {%- if site.cottage_food_notice %}<p>{{ site.cottage_food_notice }}</p>{% endif %}
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </div>
+</footer>

@@ -1,0 +1,71 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow">Home bakery &middot; {{ site.location }}</p>
+      <h1>Warm cookies, <br>baked just for you.</h1>
+      <p class="lead">Small-batch cookies made from scratch in Kate's kitchen with real butter, good chocolate, and no shortcuts. Order a dozen for the house or a few hundred for the party.</p>
+      <div class="button-row">
+        <a class="button" href="{{ '/menu/' | relative_url }}">Order cookies</a>
+      </div>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      {% include cookie-art.html dough="#c98a4b" chips="#4a2a17" %}
+      {% include cookie-art.html dough="#5a3524" chips="#2a160d" %}
+      {% include cookie-art.html dough="#e2b97f" chips="#b0703a" %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2>Customer favorites</h2>
+      <a href="{{ '/menu/' | relative_url }}">Full menu &rarr;</a>
+    </div>
+    <div class="cookie-grid">
+      {%- for group in site.data.cookies -%}
+        {%- for cookie in group.items -%}
+          {%- if cookie.featured -%}{% include cookie-card.html cookie=cookie %}{%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container">
+    <h2 class="center">How ordering works</h2>
+    <ol class="steps">
+      <li>
+        <h3>Fill your cart</h3>
+        <p>Browse the <a href="{{ '/menu/' | relative_url }}">menu</a> and add as many dozens as you like.</p>
+      </li>
+      <li>
+        <h3>Send your request</h3>
+        <p>From your <a href="{{ '/cart/' | relative_url }}">cart</a>, tell us when you need them, at least {{ site.order_lead_time }} ahead. We'll confirm by email.</p>
+      </li>
+      <li>
+        <h3>Pick up or get delivery</h3>
+        <p>Grab them fresh from our porch or get local delivery around {{ site.service_area }}.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div>
+      <h2>Parties, gifts &amp; events</h2>
+      <p>Birthdays, baby showers, office treats, wedding favors, teacher gifts. We bake cookies for any occasion, packaged and ready to share.</p>
+      <p>Get in touch 1–2 weeks ahead for large orders.</p>
+      <a class="button" href="{{ '/cart/' | relative_url }}">Request a custom order</a>
+    </div>
+    <blockquote class="testimonial">
+      <p>&ldquo;The chocolate chip cookies disappeared in about ten minutes at our office. Already planning the next order!&rdquo;</p>
+      <cite>A happy neighbor</cite>
+    </blockquote>
+  </div>
+</section>

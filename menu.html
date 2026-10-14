@@ -1,0 +1,20 @@
+---
+layout: page
+title: Menu
+subtitle: Everything is baked to order. Choose how many dozen and add to your cart.
+permalink: /menu/
+---
+{%- for group in site.data.cookies %}
+<section class="menu-group">
+  <h2>{{ group.category }}</h2>
+  {%- if group.note %}<p class="muted">{{ group.note }}</p>{% endif %}
+  <div class="cookie-grid">
+    {%- for cookie in group.items -%}{% include cookie-card.html cookie=cookie %}{%- endfor -%}
+  </div>
+</section>
+{%- endfor %}
+
+<aside class="callout">
+  <p><strong>Half dozens</strong> are available for most flavors at a little over half the dozen price. <strong>Gift boxes</strong> with ribbon and a handwritten note are $3 extra.</p>
+  <a class="button" href="{{ '/cart/' | relative_url }}">View cart</a>
+</aside>

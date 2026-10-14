@@ -1,0 +1,11 @@
+{%- comment -%} Menu catalog for cart.js, keyed by slug. {%- endcomment -%}
+{%- capture json -%}
+{
+{%- for group in site.data.cookies -%}
+  {%- for c in group.items -%}
+  {{ c.name | slugify | jsonify }}: {"name": {{ c.name | jsonify }}, "price": {{ c.price | default: 0 }}}{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+}
+{%- endcapture -%}
+<script id="menu-data" type="application/json">{{ json | strip_newlines }}</script>

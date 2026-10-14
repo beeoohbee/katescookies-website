@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="" width="40" height="40">
+      <span>{{ site.title }}</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+    <label for="nav-toggle" class="nav-toggle__label" aria-hidden="true"><span></span></label>
+    <nav class="site-nav" aria-label="Main">
+      {%- assign nav = "/menu/|Menu,/about/|About" | split: "," -%}
+      {%- for item in nav -%}
+        {%- assign parts = item | split: "|" -%}
+        <a href="{{ parts[0] | relative_url }}"{% if page.url == parts[0] %} aria-current="page"{% endif %}>{{ parts[1] }}</a>
+      {%- endfor -%}
+      <a class="cart-link" href="{{ '/cart/' | relative_url }}"{% if page.url == '/cart/' %} aria-current="page"{% endif %}>
+        Cart <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+    </nav>
+  </div>
+</header>
